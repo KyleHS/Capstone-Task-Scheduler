@@ -11,9 +11,17 @@ module.exports.taskSchema = Joi.object({
 
 module.exports.userSchema = Joi.object({
     user: Joi.object({
-        username: Joi.string().required(),
-        password: Joi.string().required(),
-        email: Joi.string().required(),
+        username: Joi.string()
+            .alphanum()
+            .min(6)
+            .max(12)
+            .required(),
+        password: Joi.string()
+            .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+            .required(),
+        email: Joi.string()
+            .email({  minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+            .required(),
         createdAt: Joi.date().required(),
     }).required()
 })
