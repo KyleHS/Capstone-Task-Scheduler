@@ -4,7 +4,6 @@ module.exports.taskSchema = Joi.object({
     task: Joi.object({
         taskname: Joi.string().required(),
         taskdescription: Joi.string().required(),
-        taskid: Joi.int().required(),
         time: Joi.date().required(),
     }).required()
 });
