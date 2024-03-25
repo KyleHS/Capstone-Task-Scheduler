@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    <h1 class="text-center">Edit Task</h1>
+    <div class="col-6 offset-3">
+        <form action="/tasks/<%=task._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+            <div class="mb-3">
+                <label class="form-label" for="taskname">Task Name</label>
+                <input class="form-control" type="text" id="taskname" name="task[taskname]" value="<%= task.taskname %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="taskdescription">Task Description</label>
+                <input class="form-control" type="text" id="taskdescription" name="task[taskdescription]" value="<%= task.taskdescription %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="time">Time</label>
+                <textarea class="form-control" type="text" id="time" name="task[time]" required><%= task.time %></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+           
+            <div class="mb-3">
+                <button class="btn btn-info">Update Task</button>
+            </div>
+            
+        </form>
+        <a href="/tasks/<%= task._id %>">Back to Tasks</a>
+    </div>
+</div>

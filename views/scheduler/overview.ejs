@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') %>
+<h1>Current Tasks</h1>
+ <div>
+     <a href="/tasks/new">Add Task</a>
+</div>
+<ul>
+    <% for (let task of tasks){%>
+        <div class="card" mb-3>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= task.taskname %></h5>
+                        <p class="card-text"><%= task.taskdescription %></p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= task.time %></small>
+                        </p>
+                        <a class="btn btn-primary" href="/tasks/<%=task._id%>">View <%= task.taskname  %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }%>
+</ul>
