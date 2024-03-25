@@ -8,7 +8,7 @@ const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
 
 //routes
-const schedules = require('./routes/schedule');
+const tasks = require('./routes/tasks');
 
 mongoose.connect('mongodb://localhost:27016/schedule', {
     useNewUrlParser: true,

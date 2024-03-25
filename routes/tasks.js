@@ -19,7 +19,7 @@ const validateTask = (req, res, next) => {
 
 router.get('/', catchAsync(async (req, res) => {
     const tasks = await Task.find({});
-    res.render('scheduler/index', { tasks })
+    res.render('scheduler/overview', { tasks })
 }));
 
 router.get('/new', (req, res) => {
