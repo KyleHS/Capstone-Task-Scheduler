@@ -1,0 +1,45 @@
+<!-- register.ejs -->
+<html>
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <div class="row">
+        <h1 class="text-center">Account Creation</h1>
+        <div class="col-6 offset-3">
+            <form action="/registration" method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" type="text" id="email" name="user[email]" value="<%= user.email %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control" type="text" id="username" name="user[username]" value="<%= user.username %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-control" type="password" id="password" name="user[password]" value="<%= user.password %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+               
+                <div class="mb-3">
+                    <button class="btn btn-info">Create Account</button>
+                </div>
+                
+            </form>
+        
+        </div>
+    </div>
+    
+   
+</body>
+</html>
+
