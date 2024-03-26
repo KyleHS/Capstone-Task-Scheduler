@@ -23,7 +23,7 @@ router.get('/', catchAsync(async (req, res) => {
 }));
 
 router.get('/new', (req, res) => {
-    res.render('tasks/new');
+    res.render('scheduler/new');
 })
 
 

@@ -12,11 +12,6 @@ const taskSchema = new Schema({
     type: String,
     required: false
   },
-  taskid: {
-    type: int,
-    required: true,
-    unique: true
-  },
   time: {
     type: Date,
     default: Date.now
