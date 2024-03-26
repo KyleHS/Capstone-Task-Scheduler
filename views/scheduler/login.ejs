@@ -1,28 +1,36 @@
-
-<div class="row">
-    <h1 class="text-center">Login Page</h1>
-    <div class="col-6 offset-3">
-        <form action="/login" method="POST" novalidate class="validated-form">
-            <div class="mb-3">
-                <label class="form-label" for="username">Username</label>
-                <input class="form-control" type="text" id="username" name="user[username]" value="<%= user.username %>" required>
-                <div class="valid-feedback">
-                    Looks good!
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div class="row">
+        <h1 class="text-center">Login Page</h1>
+        <div class="col-6 offset-3">
+            <form action="/login" method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control" type="text" id="username" name="user[username]" value="<%= user.username %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" id="password" name="user[password]" value="<%= user.password %>" required>
-                <div class="valid-feedback">
-                    Looks good!
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-control" type="password" id="password" name="user[password]" value="<%= user.password %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
-            </div>
-           
-            <div class="mb-3">
-                <button class="btn btn-info">Login</button>
-            </div>
-            
-        </form>
-        <a href="">New User?</a>
+               
+                <div class="mb-3">
+                    <button class="btn btn-info">Login</button>
+                </div>
+                
+            </form>
+            <a href="">New User?</a>
+        </div>
     </div>
-</div>
+
+</body>
+</html>
+
