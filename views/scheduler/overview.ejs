@@ -1,8 +1,6 @@
 <% layout('layouts/boilerplate') %>
 <h1>Current Tasks</h1>
- <div>
-     <a href="/tasks/new">Add Task</a>
-</div>
+
 <ul>
     <% for (let task of tasks){%>
         <div class="card" mb-3>
@@ -14,7 +12,10 @@
                         <p class="card-text">
                             <small class="text-muted"><%= task.time %></small>
                         </p>
-                        <a class="btn btn-primary" href="/tasks/<%=task._id%>">View <%= task.taskname  %></a>
+                        <a class="btn btn-primary" href="/tasks/<%=task._id%>/edit">Edit <%= task.taskname  %></a>
+                        <form action="/tasks/<%=task._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete Task</button>
+                        </form>
                     </div>
                 </div>
             </div>

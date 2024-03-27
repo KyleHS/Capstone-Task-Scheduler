@@ -32,7 +32,7 @@ router.post('/', validateTask, catchAsync(async (req, res, next) => {
     const task = new Task(req.body.task);
     await task.save();
     req.flash('success', 'Successfully made a new task!');
-    res.redirect(`/tasks/${task._id}`)
+    res.redirect(`/tasks/`)
 }))
 
 router.get('/:id', catchAsync(async (req, res,) => {
@@ -41,7 +41,7 @@ router.get('/:id', catchAsync(async (req, res,) => {
         req.flash('error', 'Cannot find that task!');
         return res.redirect('/tasks');
     }
-    res.render('tasks/show', { task });
+    res.render('scheduler/overview', { task });
 }));
 
 router.get('/:id/edit', catchAsync(async (req, res) => {
@@ -50,14 +50,14 @@ router.get('/:id/edit', catchAsync(async (req, res) => {
         req.flash('error', 'Cannot find that task!');
         return res.redirect('/tasks');
     }
-    res.render('tasks/edit', { task });
+    res.render('scheduler/edit', { task });
 }))
 
 router.put('/:id', validateTask, catchAsync(async (req, res) => {
     const { id } = req.params;
     const task = await Task.findByIdAndUpdate(id, { ...req.body.task });
     req.flash('success', 'Successfully updated task!');
-    res.redirect(`/tasks/${task._id}`)
+    res.redirect(`/tasks/`)
 }));
 
 router.delete('/:id', catchAsync(async (req, res) => {
