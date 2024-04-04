@@ -1,12 +1,8 @@
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
+<% layout('layouts/boilerplatezeronav') %>
     <div class="row">
         <h1 class="text-center">Login Page</h1>
         <div class="col-6 offset-3">
-            <form action="/login" method="POST" novalidate class="validated-form">
+            <form action="/users/login" method="POST" novalidate class="validated-form">
                 <div class="mb-3">
                     <label class="form-label" for="username">Username</label>
                     <input class="form-control" type="text" id="username" name="user[username]" value="<%= user.username %>" required>
@@ -27,10 +23,8 @@
                 </div>
                 
             </form>
-            <a href="/registration">New User?</a>
+            <a href="/users/register">New User?</a>
         </div>
     </div>
 
-</body>
-</html>
 

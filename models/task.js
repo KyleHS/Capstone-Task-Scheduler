@@ -15,11 +15,15 @@ const taskSchema = new Schema({
   time: {
     type: Date,
     default: Date.now
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User' // Reference to the User model
   }
 });
 
-// Create User Model
-const User = mongoose.model('Task', taskSchema);
+// Create Task Model
+const Task = mongoose.model('Task', taskSchema);
 
-// Export User Model
-module.exports = User;
+// Export Task Model
+module.exports = Task;

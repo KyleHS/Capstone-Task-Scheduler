@@ -9,6 +9,8 @@ const methodOverride = require('method-override');
 
 //routes
 const tasks = require('./routes/tasks');
+const users = require('./routes/users');
+const { userSchema } = require('./schemas');
 
 mongoose.connect('mongodb://localhost:27017/schedule', {
     useNewUrlParser: true,
@@ -52,13 +54,16 @@ app.use((req, res, next) => {
     next();
 })
 
+//User Login Page
+app.use('/users', users);
+
 //New Task page
 app.use('/tasks', tasks);
-
 //Overview Page
 app.get('/', (req, res) => {
     res.render('Overview');
 });
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));

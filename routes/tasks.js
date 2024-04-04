@@ -3,7 +3,6 @@ const router = express.Router();
 
 const { taskSchema } = require('../schemas.js');
 const Task = require('../models/task');
-
 const ExpressError = require('../utils/ExpressError.js');
 const catchAsync = require('../utils/catchAsync.js');
 
@@ -18,7 +17,7 @@ const validateTask = (req, res, next) => {
 }
 
 router.get('/', catchAsync(async (req, res) => {
-    const tasks = await Task.find({});
+    const tasks = await Task.find();
     res.render('scheduler/overview', { tasks })
 }));
 
@@ -26,9 +25,7 @@ router.get('/new', (req, res) => {
     res.render('scheduler/new');
 })
 
-
 router.post('/', validateTask, catchAsync(async (req, res, next) => {
-    // if (!req.body.task) throw new ExpressError('Invalid Task Data', 400);
     const task = new Task(req.body.task);
     await task.save();
     req.flash('success', 'Successfully made a new task!');
@@ -67,4 +64,4 @@ router.delete('/:id', catchAsync(async (req, res) => {
     res.redirect('/tasks');
 }));
 
-module.exports = router;
+module.exports = router; 
